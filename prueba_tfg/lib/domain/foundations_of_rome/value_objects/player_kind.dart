@@ -1,0 +1,1 @@
+﻿enum TipoJugador { human, bot }
