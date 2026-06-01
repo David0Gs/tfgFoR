@@ -1,0 +1,41 @@
+# Sistema / IDE
+.DS_Store
+*.log
+*.tmp
+.idea/
+.vscode/
+
+# Secretos y configuracion local
+**/.env
+**/.env.local
+
+# Dart / Flutter
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.packages
+**/build/
+**/coverage/
+**/doc/api/
+.pub-cache/
+.pub/
+
+# Bases de datos locales y respaldos
+**/*.sqlite3
+**/*.sqlite
+**/*.db
+**/*backup*.sqlite3
+**/partida_guardada.json
+
+# Builds nativos generados
+frontend/android/app/debug/
+frontend/android/app/profile/
+frontend/android/app/release/
+frontend/ios/Flutter/.last_build_id
+frontend/app.*.symbols
+frontend/app.*.map.json
+
+# Archivos de proyecto locales
+*.iml
+*.ipr
+*.iws

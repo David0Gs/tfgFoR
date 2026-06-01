@@ -1,0 +1,15 @@
+Esta versión digital adapta 'Foundations of Rome ©' a una partida más rápida y simplificada.
+
+El objetivo es conseguir más puntos de gloria que el resto de arquitectos al final de la tercera era. Durante la partida se compran parcelas, se construyen edificios y se cobran ingresos.
+
+En tu turno puedes hacer una acción principal:
+
+1. Comprar una parcela del mercado pagando su coste.
+2. Construir un edificio sobre parcelas que ya sean tuyas.
+3. Cobrar ingresos para conseguir monedas.
+
+Los edificios residenciales aumentan población, los comerciales mejoran tus ingresos y los cívicos aportan puntos. Los monumentos tienen requisitos especiales y se construyen desde la reserva común.
+
+La partida avanza por eras. Cuando se agota el mazo de una era, se muestra un resumen de puntuación y la partida continua hasta terminar la era III.
+
+Los enlaces de abajo abren el material del juego físico original. Ese material puede contener reglas del juego original que amplían la jugabilidad y que no han sido contempladas en esta version digital.

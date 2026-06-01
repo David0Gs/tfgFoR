@@ -1,0 +1,10 @@
+name: for_core
+description: Motor de reglas y modelos compartidos de Foundations of Rome.
+publish_to: 'none'
+
+environment:
+  sdk: ^3.10.3
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.15

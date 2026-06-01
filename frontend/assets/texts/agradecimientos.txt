@@ -1,0 +1,33 @@
+¡Gracias por jugar!
+
+
+FOUNDATIONS OF ROME
+DIGITAL VERSION
+Esta aplicación ha sido desarrollada como proyecto de Fin de Grado (TFG) para el ciclo de Desarrollo de Aplicaciones Multiplataforma (DAM).
+
+CRÉDITOS:
+Desarrollador y artista: David Gutiérrez Manjón
+Desarrollador y diplomático: Domingo Cabrero Rodríguez
+Centro: I.E.S. Europa
+Tutor: Marco Antonio Peña Martín
+
+RECONOCIMIENTOS ESPECIALES:
+Este software es una adaptación digital con fines exclusivamente educativos del juego de mesa "Foundations of Rome". Deseamos expresar nuestro más sincero agradecimiento y reconocimiento a los creadores originales:
+Diseño Original: Emerson Matsuuchi.
+Editorial y Proyecto Kickstarter: Birdwood Games (originalmente lanzado por Arcane Wonders).
+Arte y Concepto: Agradecemos a los responsables de la campaña de Kickstarter por la inspiración y el increíble diseño visual y mecánico que ha servido de base para este proyecto académico.
+Música: Miklós Rózsa (compositor) y el resto de responsables detrás de las joyas cinematográficas de la © Metro-Goldwyn-Mayer: Ben-Hur (1959) y Quo Vadis (1951).
+
+AGRADECIMIENTOS:
+Queremos dar un agradecimiento muy especial a: 
+Carlos López Cendón, nuestro amigo en el tiempo y guía espiritual en esta epopeya académica. Sin ti este proyecto no habría alcanzado tales dimensiones. Gracias por la paciencia y todas las horas echadas.
+Enrique Nogal Quintana, el tutor omnipresente y profesional incansable. Sin tus bases sólidas no habríamos podido sobrevivir a todo lo que nos ha venido detrás, ni mucho menos plantearnos el abarcar un proyecto así. 
+Y finalmente, a la antigua Roma... y a sus creadores. 
+
+
+
+
+
+
+
+Aunque no lo ovidemos… “los romanos, ¡una mierrrrrrda al lado de los etruscos!”.
