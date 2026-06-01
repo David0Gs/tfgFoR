@@ -20,6 +20,9 @@ abstract class I3DViewerController {
   /// Configura el punto focal de la camara.
   Future<void> setCameraTarget(double x, double y, double z);
 
+  /// Configura el punto focal de la camara sobre una casilla del tablero.
+  Future<void> setCameraTargetToTile(String coord);
+
   /// Resetea la camara a valores por defecto.
   Future<void> resetCamera();
 

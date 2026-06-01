@@ -780,6 +780,8 @@ class _PantallaTableroState extends State<PantallaTablero> {
       return;
     }
 
+    unawaited(_tableController.centrarCamaraEnCasilla(coord));
+
     setState(() {
       _coordenadaSeleccionada = coord;
       _mostrarCatalogoEdificios = true;

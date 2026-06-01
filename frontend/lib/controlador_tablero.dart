@@ -64,6 +64,17 @@ class TableroController {
     }
   }
 
+  /// Centra el punto de orbita de la camara sobre una casilla concreta.
+  Future<void> centrarCamaraEnCasilla(String coord) async {
+    if (!_visorListo) return;
+
+    try {
+      await _visor3DController?.setCameraTargetToTile(coord);
+    } catch (e) {
+      debugPrint("Error centrando camara en $coord: $e");
+    }
+  }
+
   /// Configura la posicion de la camara.
   Future<void> configurarCamara({
     double roll = VisorConfig.cameraDefaultRoll,

@@ -53,6 +53,12 @@ class _WebThreeJsControllerImpl implements I3DViewerController {
   }
 
   @override
+  Future<void> setCameraTargetToTile(String coord) async {
+    await _ensureReady();
+    _sendCommand('setCameraTargetToTile:$coord');
+  }
+
+  @override
   Future<void> resetCamera() async {
     await _ensureReady();
     _sendCommand('resetCamera');

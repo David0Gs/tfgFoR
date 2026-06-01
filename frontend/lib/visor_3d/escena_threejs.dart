@@ -1348,6 +1348,19 @@ function handleCommand(event) {
       requestRender();
       break;
     }
+    case 'setCameraTargetToTile': {
+      const [, coord] = parts;
+      const tilePosition = getTileWorldPosition(coord);
+      if (!tilePosition) {
+        sendMessage('error:tileNotFound:' + coord);
+        break;
+      }
+
+      controls.target.set(tilePosition.x, tilePosition.y, tilePosition.z);
+      controls.update();
+      requestRender();
+      break;
+    }
     case 'resetCamera': {
       controls.target.set(DEFAULT_CAM.targetX, DEFAULT_CAM.targetY, DEFAULT_CAM.targetZ);
       applyCameraOrbit(DEFAULT_CAM.roll, DEFAULT_CAM.pitch, DEFAULT_CAM.distance);
