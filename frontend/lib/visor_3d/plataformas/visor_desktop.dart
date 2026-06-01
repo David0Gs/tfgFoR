@@ -69,6 +69,7 @@ class _DesktopViewerWidgetState extends State<DesktopViewerWidget> {
     final htmlContent = buildThreeJsHtml(
       modelUrl,
       scenarioModelUrl: scenarioModelUrl,
+      assetBasePath: '$baseUrl/assets',
       backgroundColorHex: widget.backgroundColorHex,
       renderContinuously: widget.renderContinuously,
       isThumbnail: widget.isThumbnail,

@@ -158,7 +158,7 @@ class _PantallaTableroState extends State<PantallaTablero> {
     }
 
     final Size size = MediaQuery.sizeOf(context);
-    return size.shortestSide < 900;
+    return size.width < 900;
   }
 
   /// Inicializa partida, controlador remoto, visor y turnos automaticos.

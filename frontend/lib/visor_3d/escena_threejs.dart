@@ -7,6 +7,7 @@ import 'camara_config.dart';
 String buildThreeJsHtml(
   String modelUrl, {
   String scenarioModelUrl = '',
+  String assetBasePath = '/assets/assets',
   String? backgroundColorHex,
   bool renderContinuously = false,
   bool isThumbnail = false,
@@ -29,6 +30,10 @@ String buildThreeJsHtml(
   final lowPowerModeJs = lowPowerMode ? 'true' : 'false';
   final resolvedModelUrl = _resolveWebAssetUrl(modelUrl);
   final resolvedScenarioModelUrl = _resolveWebAssetUrl(scenarioModelUrl);
+  final resolvedAssetBasePath = _normalizeAssetBasePath(assetBasePath);
+  final mobileBackgroundUrl =
+      '$resolvedAssetBasePath/pics/fondo_mobile.webp';
+  final hdriUrl = '$resolvedAssetBasePath/pics/fondo_2k.exr';
 
   return '''
 <!DOCTYPE html>
@@ -93,7 +98,7 @@ const IS_THUMBNAIL = ${isThumbnail.toString()}; // true si es miniatura, no carg
 const AMBIENT_LIGHT_INTENSITY = 2;
 const ENV_MAP_INTENSITY = 1.9;
 const LOW_POWER_ENV_MAP_INTENSITY = 1.55;
-const MOBILE_BACKGROUND_PATH = '/assets/assets/pics/fondo_mobile.webp';
+const MOBILE_BACKGROUND_PATH = '$mobileBackgroundUrl';
 const MARKER_POSITION_JITTER_MIN = 0.03;
 const MARKER_POSITION_JITTER_MAX = 0.16;
 const PERF_REPORT_INTERVAL_MS = 5000;
@@ -587,10 +592,39 @@ function disposeMaterialIfOwned(material) {
 // --- Carga de HDRI (environment map) ---
 function addMobilePanoramaBackground(texture) {
   const geometry = new THREE.SphereGeometry(1000, 48, 32);
-  const material = new THREE.MeshBasicMaterial({
-    map: texture,
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      map: { value: texture },
+      exposure: { value: 1.28 },
+      contrast: { value: 0.72 },
+      saturation: { value: 0.78 },
+    },
+    vertexShader: `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      uniform sampler2D map;
+      uniform float exposure;
+      uniform float contrast;
+      uniform float saturation;
+      varying vec2 vUv;
+
+      void main() {
+        vec4 texel = texture2D(map, vUv);
+        vec3 color = texel.rgb * exposure;
+        color = (color - 0.5) * contrast + 0.5;
+        float luminance = dot(color, vec3(0.299, 0.587, 0.114));
+        color = mix(vec3(luminance), color, saturation);
+        gl_FragColor = vec4(clamp(color, 0.0, 1.0), texel.a);
+      }
+    `,
     side: THREE.BackSide,
-    toneMapped: false,
+    depthWrite: false,
+    depthTest: false,
   });
   const sphere = new THREE.Mesh(geometry, material);
   sphere.name = 'mobileBackgroundSphere';
@@ -630,7 +664,7 @@ function loadEnvironmentMap() {
   }
 
   const exrLoader = new EXRLoader();
-  const hdriPath = '/assets/assets/pics/fondo_2k.exr'; // Ruta del HDRI desde raiz publica
+  const hdriPath = '$hdriUrl'; // Ruta del HDRI desde raiz publica
   
   exrLoader.load(
     hdriPath,
@@ -1371,4 +1405,11 @@ String _resolveWebAssetUrl(String url) {
     return '/assets/$url';
   }
   return url;
+}
+
+String _normalizeAssetBasePath(String path) {
+  if (path.isEmpty) {
+    return '';
+  }
+  return path.endsWith('/') ? path.substring(0, path.length - 1) : path;
 }

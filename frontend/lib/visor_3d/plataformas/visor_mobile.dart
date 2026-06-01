@@ -69,6 +69,7 @@ class _MobileViewerWidgetState extends State<MobileViewerWidget> {
     final String htmlContent = buildThreeJsHtml(
       modelUrl,
       scenarioModelUrl: scenarioModelUrl,
+      assetBasePath: '$baseUrl/assets',
       backgroundColorHex: widget.backgroundColorHex,
       renderContinuously: widget.renderContinuously,
       isThumbnail: widget.isThumbnail,
